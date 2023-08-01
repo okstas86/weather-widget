@@ -31,7 +31,7 @@
       <div v-for="(city, index) in items" v-else  :key="index" class="weather-card">
         <SvgSelector :id="'close'" @click="remove(index)" />
 
-        <h2>{{ city }}</h2>
+        <h2>{{ capitalizedCity(city) }}</h2>
         <div>
           <p>Температура: {{ weatherData[city]?.temp }}°C</p>
           <p>Описание: {{ weatherData[city]?.description }}</p>
@@ -146,6 +146,10 @@ export default defineComponent({
       searchCity.value = "";
     }
 
+    function capitalizedCity(city: string): string {
+      return city.charAt(0).toUpperCase() + city.slice(1);
+    }
+
     function remove(index: number) {
       if (index >= 0 && index < items.value.length) {
         const city = items.value[index];
@@ -172,7 +176,8 @@ export default defineComponent({
       sunset,
       changeTheme,
       theme,
-      showAddCity
+      showAddCity,
+      capitalizedCity
     };
   },
 });
