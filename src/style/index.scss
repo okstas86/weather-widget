@@ -49,6 +49,12 @@
     p {
       margin: 5px 0;
     }
+    .close {
+      position: relative;
+      left: 95%;
+      cursor: pointer;
+      z-index: 9999;
+    }
   }
 
   .add-city {
@@ -110,18 +116,24 @@
   background-color: $dark-input-background-color;
 }
 
-.close {
-  position: relative;
-  left: 600px;
-  cursor: pointer;
-}
-.fade-enter-active {
-  transition: opacity 3s;
-}
-.fade-leave-active {
-  transition: opacity 0.5s;
-}
-.fade-enter-from,
-.fade-leave-to {
-  opacity: 0;
-}
+
+ .fade-enter-active {
+    transition: opacity 3s;
+  }
+  .fade-leave-active {
+    transition: opacity 0.5s;
+  }
+  .fade-enter-from,
+  .fade-leave-to {
+    opacity: 0;
+  }
+
+  @media  (max-width: 768px) {
+    .add-city {
+      flex-direction: column;
+    }
+  
+    .add-city input {
+      margin-bottom: 10px;
+    }
+  }
